@@ -1,0 +1,130 @@
+
+.profile-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #eff6ff, #f8fafc);
+  font-family: Arial, sans-serif;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 480px;
+  padding: 32px;
+  box-sizing: border-box;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 16px 45px rgba(15, 23, 42, 0.08);
+  text-align: center;
+}
+
+.profile-logo {
+  color: #2563eb;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.profile-avatar {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  margin: 28px auto 16px;
+  border-radius: 50%;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.profile-card h1 {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 26px;
+}
+
+.profile-subtitle {
+  margin-bottom: 26px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.profile-info {
+  margin: 24px 0;
+  border-top: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.profile-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.profile-row span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.profile-row strong {
+  overflow-wrap: anywhere;
+  color: #1e293b;
+  font-size: 15px;
+}
+
+.profile-row .profile-role {
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 12px;
+}
+
+.profile-logout,
+.profile-card button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.profile-logout:hover,
+.profile-card button:hover {
+  background: #1d4ed8;
+}
+
+.profile-card .profile-secondary {
+  margin-top: 10px;
+  background: #64748b;
+}
+
+.profile-error {
+  margin: 20px 0;
+  color: #dc2626;
+  line-height: 1.6;
+}
+
+.profile-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #2563eb;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.profile-link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,595 @@
+/* ============ TOÀN TRANG ============ */
+.home-page {
+  --blue: #155eef;
+  --blue-dark: #0e4bc4;
+  --blue-soft: #e8f0ff;
+  --ink: #102344;
+  --text: #526079;
+  --muted: #71809a;
+  --line: #e5eaf2;
+
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
+  background: #fff;
+  color: #172033;
+}
+
+.home-page section { width: 100%; }
+
+/* ============ HEADER ============ */
+.home-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  min-height: 82px;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 3px 12px rgba(20, 50, 100, 0.05);
+}
+
+.home-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  color: var(--blue);
+  font-size: 24px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logo-symbol {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--blue-soft);
+  font-size: 25px;
+}
+
+.home-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+}
+
+.home-nav a {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.home-nav a:hover,
+.home-nav .nav-active { color: var(--blue); }
+
+.home-account {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.home-account a,
+.home-account button {
+  min-height: 42px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.login-link,
+.account-button {
+  color: var(--blue);
+  background: #fff;
+  border: 1px solid var(--blue);
+}
+
+.register-button {
+  color: #fff;
+  background: var(--blue);
+  border: 1px solid var(--blue);
+}
+
+.logout-button {
+  color: #dc2626;
+  background: #fff;
+  border: 1px solid #fecaca;
+}
+
+.home-account a:hover,
+.home-account button:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+/* ============ HERO ============ */
+.home-hero {
+  min-height: 520px;
+  padding: 70px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  background: linear-gradient(135deg, #f5f8ff, var(--blue-soft));
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 620px;
+}
+
+.hero-tag {
+  display: inline-block;
+  margin-bottom: 22px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(21, 94, 239, 0.12);
+}
+
+.home-hero h1 {
+  margin: 0 0 22px;
+  color: var(--ink);
+  font-size: clamp(36px, 4.4vw, 60px);
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+}
+
+.home-hero h1 span { color: var(--blue); }
+
+.home-hero p {
+  margin: 0 0 30px;
+  max-width: 520px;
+  color: #63718a;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.hero-button {
+  min-height: 52px;
+  padding: 0 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--blue);
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.hero-button:hover {
+  background: var(--blue-dark);
+  transform: translateY(-2px);
+}
+
+.hero-benefits {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* --- Hình minh họa --- */
+.hero-visual {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.visual-circle {
+  position: relative;
+  width: min(420px, 38vw);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #bfdbfe 0%, #dbeafe 60%, #eff6ff 100%);
+  box-shadow: 0 25px 60px rgba(21, 94, 239, 0.18);
+}
+
+.visual-sun {
+  position: absolute;
+  top: 16%;
+  right: 20%;
+  width: 14%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fde68a;
+}
+
+.visual-cloud {
+  position: absolute;
+  color: #fff;
+  line-height: 1;
+}
+.cloud-one { top: 22%; left: 12%; font-size: 56px; }
+.cloud-two { top: 40%; right: 8%; font-size: 40px; opacity: 0.85; }
+
+.visual-plane {
+  position: absolute;
+  top: 30%;
+  left: 36%;
+  color: var(--blue);
+  font-size: 70px;
+  line-height: 1;
+  transform: rotate(-20deg);
+}
+
+.visual-mountain {
+  position: absolute;
+  bottom: 18%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+}
+.mountain-one {
+  left: 4%;
+  border-width: 0 90px 110px 90px;
+  border-bottom-color: #93c5fd;
+}
+.mountain-two {
+  right: 2%;
+  border-width: 0 110px 140px 110px;
+  border-bottom-color: #60a5fa;
+}
+
+.visual-ground {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 22%;
+  background: #3b82f6;
+}
+
+.visual-route {
+  position: absolute;
+  bottom: 7%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* ============ TIÊU ĐỀ CHUNG ============ */
+.section-eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.booking-heading,
+.section-heading {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.booking-heading h2,
+.section-heading h2 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: clamp(27px, 3vw, 36px);
+}
+
+.booking-heading p,
+.section-heading p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* ============ TÌM VÉ ============ */
+.booking-section {
+  padding: 70px 5% 55px;
+  background: #fff;
+}
+
+.booking-card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 28px auto 0;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 35px rgba(30, 60, 100, 0.08);
+}
+
+.transport-tabs {
+  margin-bottom: 26px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 14px;
+  background: #f1f5fb;
+}
+
+.transport-tabs button {
+  min-height: 42px;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.transport-tabs button:hover { color: var(--blue); }
+
+.transport-tabs .transport-active {
+  background: #fff;
+  color: var(--blue);
+  box-shadow: 0 2px 8px rgba(20, 50, 100, 0.12);
+}
+
+.booking-fields {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.booking-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.booking-field label {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.booking-field input,
+.booking-field select {
+  width: 100%;
+  min-width: 0;
+  height: 50px;
+  padding: 0 14px;
+  border: 1px solid #d9e0ec;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+  color: #172033;
+  font-size: 15px;
+}
+
+.booking-field input:focus,
+.booking-field select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(21, 94, 239, 0.12);
+}
+
+.booking-error {
+  margin: 18px 0 0;
+  padding: 12px 14px;
+  border-radius: 9px;
+  background: #fee2e2;
+  color: #991b1b;
+  font-size: 14px;
+}
+
+.search-button {
+  margin-top: 22px;
+  min-height: 52px;
+  padding: 0 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--blue);
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.search-button:hover { background: var(--blue-dark); }
+
+/* ============ DỊCH VỤ & CÁC BƯỚC ============ */
+.services-section,
+.steps-section { padding: 75px 5%; }
+
+.services-section { background: #f6f8fd; }
+
+.service-grid,
+.steps-grid {
+  width: 100%;
+  max-width: 1200px;
+  margin: 36px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  min-width: 0;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(30, 60, 100, 0.09);
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--blue-soft);
+  font-size: 28px;
+}
+
+.service-card h3 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 21px;
+}
+
+.service-card p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.service-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--blue);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.service-link:hover { text-decoration: underline; }
+
+.step-item {
+  padding: 8px 4px 8px 22px;
+  border-left: 3px solid var(--blue-soft);
+}
+
+.step-number {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--blue);
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.step-item h3 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 19px;
+}
+
+.step-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* ============ FOOTER ============ */
+.home-footer {
+  width: 100%;
+  padding: 35px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+}
+
+.home-footer p { margin: 0; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1000px) {
+  .home-header { gap: 18px; padding: 0 3%; }
+  .home-logo { font-size: 20px; }
+  .home-nav { gap: 18px; }
+  .home-account { gap: 8px; }
+  .home-account a,
+  .home-account button { padding: 0 12px; font-size: 13px; }
+
+  .home-hero { flex-direction: column; align-items: flex-start; padding: 55px 6%; }
+  .hero-visual { align-self: center; }
+  .visual-circle { width: min(340px, 80vw); }
+
+  .booking-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px) {
+  .home-header { padding: 13px 4%; flex-wrap: wrap; gap: 14px; }
+  .home-logo { font-size: 19px; }
+  .logo-symbol { width: 38px; height: 38px; font-size: 22px; }
+  .home-nav { order: 3; flex-basis: 100%; justify-content: flex-start; gap: 22px; overflow-x: auto; }
+  .home-account { margin-left: auto; }
+  .home-account a,
+  .home-account button { min-height: 38px; padding: 0 10px; font-size: 12px; }
+
+  .home-hero { min-height: auto; padding: 45px 6%; }
+
+  .booking-section,
+  .services-section,
+  .steps-section { padding: 45px 5%; }
+
+  .booking-card { padding: 20px; }
+  .transport-tabs { display: flex; }
+  .transport-tabs button { flex: 1; padding: 0 8px; justify-content: center; font-size: 14px; }
+
+  .booking-fields,
+  .service-grid,
+  .steps-grid { grid-template-columns: 1fr; }
+
+  .search-button { width: 100%; }
+
+  .home-footer { justify-content: center; text-align: center; }
+}
