@@ -1,7 +1,7 @@
 ﻿import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { api, formatDate, formatTime, formatVND } from "../../api";
-import "../../css/bus-booking.css";
+import "../../css/bus.css";
 import { QRCodeSVG } from "qrcode.react";
 
 const STATUS = {
@@ -199,3 +199,4 @@ export default function BusTicket() {
     <footer className="bus-footer">© {new Date().getFullYear()} Travel Mini</footer>
   </div>;
 }
+

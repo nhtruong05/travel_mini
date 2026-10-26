@@ -49,3 +49,5 @@ export const durationText = (minutes = 0) => {
   const m = total % 60;
   return `${h} giờ${m ? ` ${m} phút` : ""}`;
 };
+// Alias cho API đặt vé xe khách
+export const busApi = api;

@@ -1,7 +1,7 @@
 ﻿import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { api, durationText, formatDate, formatTime, formatVND } from "../../api";
-import "../../css/bus-booking.css";
+import "../../css/bus.css";
 
 export default function BusResults() {
   const location = useLocation();
@@ -82,3 +82,4 @@ export default function BusResults() {
     </main><footer className="bus-footer">© {new Date().getFullYear()} Travel Mini · Kiểm tra chính xác điểm đón/trả trước khi thanh toán.</footer>
   </div>;
 }
+

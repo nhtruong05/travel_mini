@@ -1,0 +1,43 @@
+
+/* Travel Mini — Global Inter font fix */
+
+:root {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif !important;
+}
+
+/* Ưu tiên font Inter trên toàn bộ các trang */
+body #root,
+body #root *,
+body #root *::before,
+body #root *::after {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif !important;
+}
+
+/* Giữ các trường nhập liệu đồng bộ với giao diện */
+body #root button,
+body #root input,
+body #root select,
+body #root textarea {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Tiêu đề vẫn giữ độ đậm rõ ràng */
+body #root h1,
+body #root h2,
+body #root h3,
+body #root h4 {
+  font-weight: 700;
+}

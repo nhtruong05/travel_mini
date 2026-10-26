@@ -1,8 +1,7 @@
 ﻿import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { api, formatDate, formatTime, formatVND, getSessionId } from "../../api";
-import "../../css/bus-booking.css";
-import "../../css/bus-origin-search.css";
+import "../../css/bus.css";
 
 export default function BusCheckout() {
   const location = useLocation();
@@ -203,3 +202,4 @@ export default function BusCheckout() {
     </div>
   );
 }
+

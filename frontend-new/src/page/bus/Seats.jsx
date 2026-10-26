@@ -1,7 +1,7 @@
 ﻿import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { api, durationText, formatDate, formatTime, formatVND, getSessionId } from "../../api";
-import "../../css/bus-booking.css";
+import "../../css/bus.css";
 
 export default function BusSeats() {
   const { tripId } = useParams();
@@ -129,3 +129,4 @@ export default function BusSeats() {
     </main><footer className="bus-footer">© {new Date().getFullYear()} Travel Mini · Chỗ được giữ tạm thời trong 10 phút.</footer>
   </div>;
 }
+

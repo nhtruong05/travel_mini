@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from pymongo import MongoClient
 from pymongo.errors import PyMongoError
 
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -36,9 +37,13 @@ def is_token_revoked(jwt_header, jwt_payload):
 # Register blueprints
 from routes.auth import auth_bp  # noqa: E402
 from routes.bus import bus_bp  # noqa: E402
+from routes.flights import flights_bp  # noqa: E402
+from routes.trains import trains_bp  # noqa: E402
 
 app.register_blueprint(auth_bp)
 app.register_blueprint(bus_bp)
+app.register_blueprint(flights_bp)
+app.register_blueprint(trains_bp)
 
 
 @app.get("/api/health")
