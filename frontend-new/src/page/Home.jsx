@@ -157,7 +157,7 @@ export default function Home() {
         </Link>
         <nav className="home-nav" aria-label="Điều hướng chính">
           <Link to="/" className="nav-active">Trang chủ</Link>
-          <a href="#booking">Tìm vé xe</a>
+          <a href="#booking"></a>
           <a href="#services">Dịch vụ</a>
           <Link to="/bus/bookings">Đơn của tôi</Link>
         </nav>
@@ -178,7 +178,7 @@ export default function Home() {
             <span className="hero-tag">✦ Tìm chuyến xe theo cách đơn giản hơn</span>
             <h1>Hành trình của bạn,<br /><span>bắt đầu từ đây.</span></h1>
             <p>Nhập điểm xuất phát, nơi muốn đến và ngày đi. Travel Mini sẽ tìm chuyến xe phù hợp, đề xuất nhà xe và hiển thị giá vé cùng chỗ còn trống.</p>
-            <button type="button" className="hero-button" onClick={scrollToBooking}>Tìm vé xe khách <span>→</span></button>
+            <button type="button" className="hero-button" onClick={scrollToBooking}> khách <span>→</span></button>
             <div className="hero-benefits"><span>✓ Đề xuất nhiều nhà xe</span><span>✓ Xem rõ điểm đón/trả</span><span>✓ Giữ chỗ trong 10 phút</span></div>
           </div>
           <div className="hero-visual hero-photo-stage home-bus-photo-stage" role="img" aria-label="Xe khách du lịch trên đường">
@@ -198,7 +198,7 @@ export default function Home() {
             <p>Nhập nơi xuất phát, địa điểm cần đến và ngày đi để tìm chuyến phù hợp.</p>
           </div>
           <div className="booking-card home-bus-booking-card">
-            <div className="home-bus-form-intro"><span className="home-bus-form-icon" aria-hidden="true">⌕</span><div><h3>Tìm vé xe khách</h3><p>Hệ thống sẽ tìm chuyến theo điểm đi, điểm đến và ngày đi — không cần chọn hãng xe trước.</p></div></div>
+            <div className="home-bus-form-intro"><span className="home-bus-form-icon" aria-hidden="true">⌕</span><div><h3> khách</h3><p>Hệ thống sẽ tìm chuyến theo điểm đi, điểm đến và ngày đi — không cần chọn hãng xe trước.</p></div></div>
             <form onSubmit={handleSearch} className="home-bus-search-form">
               <div className="booking-fields home-bus-fields">
                 <LocationInput id="home-origin" label="Điểm xuất phát" placeholder="Ví dụ: TP. Hồ Chí Minh, Bến xe Miền Đông..." value={origin} selected={selectedOrigin} onChange={(value) => { setOrigin(value); setSelectedOrigin(null); setMessage(""); }} onSelect={(item) => { setSelectedOrigin(item); setOrigin(item.name); setMessage(""); }} />
@@ -220,7 +220,7 @@ export default function Home() {
         <section className="steps-section home-bus-steps">
           <div className="section-heading"><span className="section-eyebrow">ĐƠN GIẢN VÀ NHANH CHÓNG</span><h2>Đặt vé chỉ với 3 bước</h2></div>
           <div className="steps-grid">{STEPS.map((step, index) => <div className="step-item" key={step.title}><span className="step-number">0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p></div>)}</div>
-          <div className="home-bus-final-cta"><div><strong>Sẵn sàng tìm chuyến xe?</strong><span>Nhập điểm đi, điểm đến và ngày đi để xem lựa chọn.</span></div><button type="button" className="hero-button" onClick={scrollToBooking}>Tìm vé xe khách <span aria-hidden="true">→</span></button></div>
+          <div className="home-bus-final-cta"><div><strong>Sẵn sàng tìm chuyến xe?</strong><span>Nhập điểm đi, điểm đến và ngày đi để xem lựa chọn.</span></div><button type="button" className="hero-button" onClick={scrollToBooking}> khách <span aria-hidden="true">→</span></button></div>
         </section>
       </main>
 

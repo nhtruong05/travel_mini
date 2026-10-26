@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { busApi, formatDate, formatTime, formatVND } from "../config/busApi";
-import "../css/bus-booking.css";
+import { api, formatDate, formatTime, formatVND } from "../../api";
+import "../../css/bus-booking.css";
 
 const STATUS = {
   PENDING_PAYMENT: "Chờ thanh toán",
@@ -41,7 +41,7 @@ export default function BusTicket() {
     setLoading(true);
     setError("");
     try {
-      const data = await busApi(`/api/bus/bookings/${encodeURIComponent(bookingCode)}`);
+      const data = await api(`/api/bus/bookings/${encodeURIComponent(bookingCode)}`);
       if (!cancelledCheck()) setBooking(data.booking);
     } catch (e) {
       if (!cancelledCheck()) setError(e.message || "Không tải được đơn đặt vé.");
@@ -62,7 +62,7 @@ export default function BusTicket() {
     setRetryingPayment(true);
     setPaymentError("");
     try {
-      const data = await busApi(`/api/bus/bookings/${encodeURIComponent(bookingCode)}/payments`, {
+      const data = await api(`/api/bus/bookings/${encodeURIComponent(bookingCode)}/payments`, {
         method: "POST",
         body: JSON.stringify({ provider: "VNPAY" }),
       });
@@ -82,7 +82,7 @@ export default function BusTicket() {
       </Link>
       <nav className="bus-nav">
         <Link to="/">Trang chủ</Link>
-        <Link to="/bus/search">Tìm vé xe</Link>
+        <Link to="/bus/search"></Link>
         <Link to="/bus/bookings">Đơn của tôi</Link>
       </nav>
       <div className="bus-header-actions">

@@ -1,16 +1,16 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import Home from "./page/home";
-import Login from "./page/login";
-import Register from "./page/register";
-import Profile from "./page/profile";
+import Home from "./page/Home";
+import Login from "./page/Login";
+import Register from "./page/Register";
+import Profile from "./page/Profile";
 
-import BusSearch from "./page/BusSearch";
-import BusResults from "./page/BusResults";
-import BusSeats from "./page/BusSeats";
-import BusCheckout from "./page/BusCheckout";
-import BusBookings from "./page/BusBookings";
-import BusTicket from "./page/BusTicket";
+import BusSearch from "./page/bus/Search";
+import BusResults from "./page/bus/Results";
+import BusSeats from "./page/bus/Seats";
+import BusCheckout from "./page/bus/Checkout";
+import BusBookings from "./page/bus/Bookings";
+import BusTicket from "./page/bus/Ticket";
 
 function App() {
   return (

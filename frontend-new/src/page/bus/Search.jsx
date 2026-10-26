@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { busApi } from "../config/busApi";
-import "../css/bus-booking.css";
+import { api } from "../../api";
+import "../../css/bus-booking.css";
 
 function localToday() {
   const now = new Date();
@@ -26,7 +26,7 @@ export default function BusSearch() {
       setLoadingSuggestions(true);
       try {
         const params = new URLSearchParams({ q, limit: "8" });
-        const data = await busApi(`/api/bus/locations?${params.toString()}`);
+        const data = await api(`/api/bus/locations?${params.toString()}`);
         if (!cancelled) setSuggestions(data.items || []);
       } catch {
         if (!cancelled) setSuggestions([]);
@@ -51,7 +51,7 @@ export default function BusSearch() {
     <div className="bus-page">
       <header className="bus-header">
         <Link className="bus-brand" to="/"> <span className="bus-brand-mark">TM</span><span><b>TRAVEL MINI</b><small>Đặt vé xe khách</small></span></Link>
-        <nav className="bus-nav"><Link to="/">Trang chủ</Link><Link className="active" to="/bus/search">Tìm vé xe</Link><Link to="/bus/bookings">Đơn của tôi</Link></nav>
+        <nav className="bus-nav"><Link to="/">Trang chủ</Link><Link className="active" to="/bus/search"></Link><Link to="/bus/bookings">Đơn của tôi</Link></nav>
         <div className="bus-header-actions">
           {sessionStorage.getItem("access_token") ? <Link className="bus-button bus-button-outline" to="/profile">Tài khoản</Link> : <Link className="bus-button bus-button-outline" to="/login">Đăng nhập</Link>}
         </div>
@@ -66,7 +66,7 @@ export default function BusSearch() {
             <div className="bus-benefits"><span>✓ Không cần biết tên bến xe</span><span>✓ Đề xuất nhiều nhà xe</span><span>✓ Giữ chỗ trong 10 phút</span></div>
           </div>
           <div className="bus-search-card">
-            <div className="bus-card-heading"><span className="bus-card-icon">⌕</span><div><h2>Tìm vé xe khách</h2><p>Chỉ cần điểm đến và ngày đi</p></div></div>
+            <div className="bus-card-heading"><span className="bus-card-icon">⌕</span><div><h2> khách</h2><p>Chỉ cần điểm đến và ngày đi</p></div></div>
             <form onSubmit={submit} className="bus-search-form">
               <div className="bus-field bus-destination-field">
                 <label htmlFor="bus-destination">Điểm muốn đến</label>

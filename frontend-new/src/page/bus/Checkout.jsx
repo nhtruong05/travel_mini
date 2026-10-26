@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+﻿import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { busApi, formatDate, formatTime, formatVND, getBusSessionId } from "../config/busApi";
-import "../css/bus-booking.css";
-import "../css/bus-origin-search.css";
+import { api, formatDate, formatTime, formatVND, getSessionId } from "../../api";
+import "../../css/bus-booking.css";
+import "../../css/bus-origin-search.css";
 
 export default function BusCheckout() {
   const location = useLocation();
@@ -38,9 +38,9 @@ export default function BusCheckout() {
       }
       try {
         const [holdData, tripData, seatData] = await Promise.all([
-          busApi(`/api/bus/seat-holds/${encodeURIComponent(holdId)}?sessionId=${encodeURIComponent(getBusSessionId())}`),
-          busApi(`/api/bus/trips/${encodeURIComponent(tripId)}`),
-          busApi(`/api/bus/trips/${encodeURIComponent(tripId)}/seats`),
+          api(`/api/bus/seat-holds/${encodeURIComponent(holdId)}?sessionId=${encodeURIComponent(getSessionId())}`),
+          api(`/api/bus/trips/${encodeURIComponent(tripId)}`),
+          api(`/api/bus/trips/${encodeURIComponent(tripId)}/seats`),
         ]);
         if (cancelled) return;
         if (holdData.hold?.tripId !== tripId) throw new Error("Lượt giữ chỗ không khớp chuyến xe.");
@@ -95,11 +95,11 @@ export default function BusCheckout() {
 
     setSubmitting(true);
     try {
-      const data = await busApi("/api/bus/bookings", {
+      const data = await api("/api/bus/bookings", {
         method: "POST",
         body: JSON.stringify({
           holdId,
-          sessionId: getBusSessionId(),
+          sessionId: getSessionId(),
           passengers: passengers.map((p) => ({ ...p, fullName: p.fullName.trim(), phone: p.phone.trim(), email: p.email.trim() })),
           promotionCode: promotionCode.trim(),
         }),
@@ -134,7 +134,7 @@ export default function BusCheckout() {
     setSubmitting(true);
     setError("");
     try {
-      const created = await busApi(`/api/bus/bookings/${encodeURIComponent(booking.bookingCode)}/payments`, {
+      const created = await api(`/api/bus/bookings/${encodeURIComponent(booking.bookingCode)}/payments`, {
         method: "POST",
         body: JSON.stringify({ provider: "VNPAY" }),
       });
@@ -157,7 +157,7 @@ export default function BusCheckout() {
     <div className="bus-page">
       <header className="bus-header">
         <Link className="bus-brand" to="/"><span className="bus-brand-mark">TM</span><span><b>TRAVEL MINI</b><small>Đặt vé xe khách</small></span></Link>
-        <nav className="bus-nav"><Link to="/">Trang chủ</Link><Link className="active" to="/bus/search">Tìm vé xe</Link><Link to="/bus/bookings">Đơn của tôi</Link></nav>
+        <nav className="bus-nav"><Link to="/">Trang chủ</Link><Link className="active" to="/bus/search"></Link><Link to="/bus/bookings">Đơn của tôi</Link></nav>
         <div className="bus-header-actions"><Link className="bus-button bus-button-outline" to={isLoggedIn ? "/profile" : "/login"}>{isLoggedIn ? "Tài khoản" : "Đăng nhập"}</Link></div>
       </header>
 

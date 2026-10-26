@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+﻿import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { busApi, durationText, formatDate, formatTime, formatVND, getBusSessionId } from "../config/busApi";
-import "../css/bus-booking.css";
+import { api, durationText, formatDate, formatTime, formatVND, getSessionId } from "../../api";
+import "../../css/bus-booking.css";
 
 export default function BusSeats() {
   const { tripId } = useParams();
@@ -21,7 +21,7 @@ export default function BusSeats() {
   const [notice, setNotice] = useState("");
 
   async function refreshSeats() {
-    const data = await busApi(`/api/bus/trips/${encodeURIComponent(tripId)}/seats`);
+    const data = await api(`/api/bus/trips/${encodeURIComponent(tripId)}/seats`);
     setSeats(data.items || []);
   }
   useEffect(() => {
@@ -30,8 +30,8 @@ export default function BusSeats() {
       setLoading(true); setError("");
       try {
         const [tripData, seatData] = await Promise.all([
-          busApi(`/api/bus/trips/${encodeURIComponent(tripId)}`),
-          busApi(`/api/bus/trips/${encodeURIComponent(tripId)}/seats`),
+          api(`/api/bus/trips/${encodeURIComponent(tripId)}`),
+          api(`/api/bus/trips/${encodeURIComponent(tripId)}/seats`),
         ]);
         if (!cancelled) { setTrip(tripData.trip); setSeats(seatData.items || []); }
       } catch (e) { if (!cancelled) setError(e.message || "Không tải được sơ đồ ghế."); }
@@ -72,7 +72,7 @@ export default function BusSeats() {
     if (!selectedSeats.length) { setError("Chọn ít nhất một ghế/giường trước."); return; }
     setWorking(true); setError(""); setNotice("");
     try {
-      const data = await busApi("/api/bus/seat-holds", { method: "POST", body: JSON.stringify({ tripId, seatIds: selectedSeats, sessionId: getBusSessionId() }) });
+      const data = await api("/api/bus/seat-holds", { method: "POST", body: JSON.stringify({ tripId, seatIds: selectedSeats, sessionId: getSessionId() }) });
       setHold(data.hold);
       await refreshSeats();
       setNotice("Đã giữ chỗ. Hoàn tất thông tin hành khách trước khi đồng hồ về 0.");
@@ -86,7 +86,7 @@ export default function BusSeats() {
     if (!hold?.id) return;
     setWorking(true);
     try {
-      await busApi(`/api/bus/seat-holds/${encodeURIComponent(hold.id)}?sessionId=${encodeURIComponent(getBusSessionId())}`, { method: "DELETE" });
+      await api(`/api/bus/seat-holds/${encodeURIComponent(hold.id)}?sessionId=${encodeURIComponent(getSessionId())}`, { method: "DELETE" });
       setHold(null); setSelectedSeats([]); setNotice("Đã giải phóng chỗ."); await refreshSeats();
     } catch (e) { setError(e.message || "Không giải phóng được chỗ."); }
     finally { setWorking(false); }
@@ -102,7 +102,7 @@ export default function BusSeats() {
   const selectedTotal = selectedSeats.length * Number(trip?.price || 0);
   const backQuery = new URLSearchParams({ destination, date });
   return <div className="bus-page">
-    <header className="bus-header"><Link className="bus-brand" to="/"><span className="bus-brand-mark">TM</span><span><b>TRAVEL MINI</b><small>Đặt vé xe khách</small></span></Link><nav className="bus-nav"><Link to="/">Trang chủ</Link><Link className="active" to="/bus/search">Tìm vé xe</Link><Link to="/bus/bookings">Đơn của tôi</Link></nav><div className="bus-header-actions"><Link className="bus-button bus-button-outline" to="/profile">Tài khoản</Link></div></header>
+    <header className="bus-header"><Link className="bus-brand" to="/"><span className="bus-brand-mark">TM</span><span><b>TRAVEL MINI</b><small>Đặt vé xe khách</small></span></Link><nav className="bus-nav"><Link to="/">Trang chủ</Link><Link className="active" to="/bus/search"></Link><Link to="/bus/bookings">Đơn của tôi</Link></nav><div className="bus-header-actions"><Link className="bus-button bus-button-outline" to="/profile">Tài khoản</Link></div></header>
     <main className="bus-seats-main"><Link className="bus-back-link" to={`/bus/results?${backQuery.toString()}`}>← Quay lại các chuyến xe</Link>
       {loading && <div className="bus-state-panel"><span className="bus-spinner"/><p>Đang tải thông tin chuyến và sơ đồ chỗ…</p></div>}
       {error && <div className="bus-alert bus-alert-error">{error}</div>}

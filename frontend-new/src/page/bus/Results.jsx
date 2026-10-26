@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+﻿import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { busApi, durationText, formatDate, formatTime, formatVND } from "../config/busApi";
-import "../css/bus-booking.css";
+import { api, durationText, formatDate, formatTime, formatVND } from "../../api";
+import "../../css/bus-booking.css";
 
 export default function BusResults() {
   const location = useLocation();
@@ -36,7 +36,7 @@ export default function BusResults() {
       if (provider.trim()) params.set("provider", provider.trim());
       if (vehicleType) params.set("vehicleType", vehicleType);
       try {
-        const data = await busApi(`/api/bus/trips?${params.toString()}`);
+        const data = await api(`/api/bus/trips?${params.toString()}`);
         if (!cancelled) { setItems(data.items || []); setPagination(data.pagination || { page: 1, limit: 10, total: 0, pages: 0 }); }
       } catch (e) {
         if (!cancelled) { setItems([]); setPagination({ page: 1, limit: 10, total: 0, pages: 0 }); setError(e.message || "Không tìm được chuyến xe."); }
@@ -53,7 +53,7 @@ export default function BusResults() {
   function resetFilters() { setSort("recommended"); setMinPrice(""); setMaxPrice(""); setTime(""); setProvider(""); setVehicleType(""); setPage(1); }
 
   return <div className="bus-page">
-    <header className="bus-header"><Link className="bus-brand" to="/"><span className="bus-brand-mark">TM</span><span><b>TRAVEL MINI</b><small>Đặt vé xe khách</small></span></Link><nav className="bus-nav"><Link to="/">Trang chủ</Link><Link className="active" to="/bus/search">Tìm vé xe</Link><Link to="/bus/bookings">Đơn của tôi</Link></nav><div className="bus-header-actions"><Link className="bus-button bus-button-outline" to={sessionStorage.getItem("access_token") ? "/profile" : "/login"}>{sessionStorage.getItem("access_token") ? "Tài khoản" : "Đăng nhập"}</Link></div></header>
+    <header className="bus-header"><Link className="bus-brand" to="/"><span className="bus-brand-mark">TM</span><span><b>TRAVEL MINI</b><small>Đặt vé xe khách</small></span></Link><nav className="bus-nav"><Link to="/">Trang chủ</Link><Link className="active" to="/bus/search"></Link><Link to="/bus/bookings">Đơn của tôi</Link></nav><div className="bus-header-actions"><Link className="bus-button bus-button-outline" to={sessionStorage.getItem("access_token") ? "/profile" : "/login"}>{sessionStorage.getItem("access_token") ? "Tài khoản" : "Đăng nhập"}</Link></div></header>
     <main className="bus-results-main">
       <Link className="bus-back-link" to="/bus/search">← Đổi địa điểm hoặc ngày đi</Link>
       <section className="bus-results-heading"><div><span className="bus-eyebrow">KẾT QUẢ TÌM KIẾM</span><h1>Nhà xe và chuyến phù hợp</h1><p>Điểm muốn đến: <b>{destination}</b> <span>·</span> Ngày đi: <b>{formatDate(`${date}T12:00:00`)}</b></p></div><div className="bus-result-count">{loading ? "Đang tìm…" : `${pagination.total} chuyến phù hợp`}</div></section>
