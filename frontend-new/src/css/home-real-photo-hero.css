@@ -1,0 +1,437 @@
+/* Travel Mini - REAL PHOTO HERO LAYOUT FIX v2
+   Import after home.css. Core layout uses high-specificity overrides so it
+   remains stable even if older App.css/home.css contains conflicting rules. */
+
+.home-page > .home-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+.home-page > main {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.home-page > main > .home-hero {
+  position: relative !important;
+  isolation: isolate !important;
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: clamp(28px, 4vw, 64px) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  min-height: clamp(620px, calc(100vh - 80px), 760px) !important;
+  margin: 0 !important;
+  padding: clamp(64px, 7vw, 100px) clamp(28px, 6vw, 96px) 64px !important;
+  overflow: hidden !important;
+  background-color: #f3f8ff !important;
+  background-image:
+    linear-gradient(90deg,
+      rgba(248, 251, 255, .98) 0%,
+      rgba(248, 251, 255, .96) 28%,
+      rgba(248, 251, 255, .81) 48%,
+      rgba(248, 251, 255, .28) 74%,
+      rgba(248, 251, 255, .12) 100%),
+    url("https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=2200&q=85") !important;
+  background-position: center, center 54% !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+.home-page > main > .home-hero::before {
+  content: "" !important;
+  position: absolute !important;
+  z-index: -1 !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background: radial-gradient(ellipse at 82% 12%, rgba(85, 166, 255, .14), transparent 42%) !important;
+}
+
+.home-page > main > .home-hero > .hero-content {
+  position: relative !important;
+  z-index: 2 !important;
+  flex: 0 1 47% !important;
+  width: 47% !important;
+  min-width: 0 !important;
+  max-width: 620px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  animation: tm-copy-enter 700ms cubic-bezier(.2,.72,.25,1) both;
+}
+
+.home-page > main > .home-hero > .hero-content h1 {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 22px 0 24px !important;
+  font-size: clamp(40px, 4vw, 64px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.045em !important;
+  font-weight: 800 !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.home-page > main > .home-hero > .hero-content h1 span {
+  color: #1764ed !important;
+}
+
+.home-page > main > .home-hero > .hero-content p {
+  max-width: 540px !important;
+  margin: 0 0 28px !important;
+  font-size: clamp(16px, 1.2vw, 19px) !important;
+  line-height: 1.8 !important;
+  overflow-wrap: break-word !important;
+}
+
+.home-page > main > .home-hero > .hero-content .hero-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  width: auto !important;
+  min-width: 220px !important;
+  max-width: 100% !important;
+  min-height: 58px !important;
+  padding: 15px 24px !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  line-height: 1.2 !important;
+  box-sizing: border-box !important;
+}
+
+.home-page > main > .home-hero > .hero-content .hero-benefits {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 12px 22px !important;
+  margin-top: 28px !important;
+  max-width: 620px !important;
+}
+
+.home-page > main > .home-hero > .hero-content .hero-benefits span {
+  white-space: nowrap !important;
+  font-size: 14px !important;
+}
+
+.home-page > main > .home-hero > .hero-photo-stage {
+  position: relative !important;
+  inset: auto !important;
+  z-index: 1 !important;
+  flex: 1 1 53% !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 760px !important;
+  height: clamp(340px, 31vw, 480px) !important;
+  min-height: 340px !important;
+  max-height: 480px !important;
+  margin: 0 0 0 auto !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  box-sizing: border-box !important;
+  border: 1px solid rgba(255, 255, 255, .82) !important;
+  border-radius: clamp(22px, 2.6vw, 38px) !important;
+  background: #d6e9fa !important;
+  box-shadow: 0 28px 80px rgba(16, 52, 98, .22), 0 4px 14px rgba(16, 52, 98, .08) !important;
+  transform: translateZ(0);
+  animation: tm-stage-float 8s ease-in-out infinite;
+}
+
+.home-page > main > .home-hero .hero-photo-slides,
+.home-page > main > .home-hero .hero-photo-slide,
+.home-page > main > .home-hero .hero-photo-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.home-page > main > .home-hero .hero-photo-slides {
+  overflow: hidden !important;
+  background: #b9d5ef !important;
+}
+
+.home-page > main > .home-hero .hero-photo-slide {
+  object-fit: cover !important;
+  object-position: center !important;
+  opacity: 0;
+  transform: scale(1.035);
+  animation: tm-real-photo-cycle 21s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+.home-page > main > .home-hero .hero-photo-slide-plane {
+  object-position: 48% center !important;
+  animation-delay: 0s;
+}
+.home-page > main > .home-hero .hero-photo-slide-train {
+  animation-delay: -14s;
+}
+.home-page > main > .home-hero .hero-photo-slide-bus {
+  animation-delay: -7s;
+}
+
+.home-page > main > .home-hero .hero-photo-overlay {
+  z-index: 1 !important;
+  pointer-events: none !important;
+  background: linear-gradient(180deg, rgba(8,29,58,.02) 35%, rgba(8,28,55,.10) 58%, rgba(7,26,50,.60) 100%), linear-gradient(90deg, rgba(18,51,89,.06), transparent 60%) !important;
+}
+
+.home-page > main > .home-hero .hero-photo-top-chip {
+  position: absolute !important;
+  z-index: 2 !important;
+  top: 22px !important;
+  left: 22px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  max-width: calc(100% - 44px) !important;
+  padding: 11px 14px !important;
+  color: #16335b !important;
+  border: 1px solid rgba(255,255,255,.7) !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.84) !important;
+  box-shadow: 0 8px 24px rgba(10,35,68,.12) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+
+.home-page > main > .home-hero .hero-live-dot {
+  display: inline-block !important;
+  width: 8px !important;
+  height: 8px !important;
+  flex: 0 0 8px !important;
+  border-radius: 50% !important;
+  background: #19b67a !important;
+  box-shadow: 0 0 0 4px rgba(25,182,122,.15);
+  animation: tm-live-pulse 2.4s ease-in-out infinite;
+}
+
+.home-page > main > .home-hero .hero-photo-bottom-card {
+  position: absolute !important;
+  z-index: 2 !important;
+  left: 22px !important;
+  right: 22px !important;
+  bottom: 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 14px 16px !important;
+  border: 1px solid rgba(255,255,255,.62) !important;
+  border-radius: 18px !important;
+  color: #fff !important;
+  background: rgba(9,28,53,.52) !important;
+  box-shadow: 0 10px 30px rgba(4,20,42,.15) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: tm-note-float 6s ease-in-out infinite;
+}
+
+.home-page > main > .home-hero .hero-photo-card-icon {
+  display: grid !important;
+  place-items: center !important;
+  width: 42px !important;
+  height: 42px !important;
+  flex: 0 0 42px !important;
+  border-radius: 13px !important;
+  background: #1764ed !important;
+  color: #fff !important;
+  font-size: 20px !important;
+}
+
+.home-page > main > .home-hero .hero-photo-card-copy {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+.home-page > main > .home-hero .hero-photo-card-copy strong {
+  color: #fff !important;
+  font-size: clamp(13px, 1vw, 16px) !important;
+  font-weight: 750 !important;
+  line-height: 1.3 !important;
+}
+.home-page > main > .home-hero .hero-photo-card-copy span {
+  color: rgba(255,255,255,.84) !important;
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+}
+.home-page > main > .home-hero .hero-photo-card-arrow {
+  display: grid !important;
+  place-items: center !important;
+  width: 34px !important;
+  height: 34px !important;
+  flex: 0 0 34px !important;
+  border: 1px solid rgba(255,255,255,.34) !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  font-size: 18px !important;
+}
+.home-page > main > .home-hero .hero-photo-index {
+  position: absolute !important;
+  z-index: 2 !important;
+  top: 50% !important;
+  right: 15px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 7px !important;
+  transform: translateY(-50%) !important;
+}
+.home-page > main > .home-hero .hero-photo-index span {
+  display: block !important;
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 9px !important;
+  background: rgba(255,255,255,.68) !important;
+  box-shadow: 0 1px 5px rgba(0,0,0,.12) !important;
+}
+.home-page > main > .home-hero .hero-photo-index span:first-child {
+  height: 21px !important;
+  background: #fff !important;
+}
+
+@keyframes tm-real-photo-cycle {
+  0% { opacity: 1; transform: scale(1.035); }
+  27% { opacity: 1; transform: scale(1.10); }
+  33% { opacity: 0; transform: scale(1.115); }
+  94% { opacity: 0; transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1.035); }
+}
+@keyframes tm-stage-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -5px; }
+}
+@keyframes tm-note-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@keyframes tm-copy-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes tm-live-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(25,182,122,.13); }
+  50% { box-shadow: 0 0 0 7px rgba(25,182,122,.05); }
+}
+
+@media (max-width: 1100px) {
+  .home-page > main > .home-hero {
+    gap: 30px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+  .home-page > main > .home-hero > .hero-content {
+    flex-basis: 46% !important;
+    width: 46% !important;
+  }
+  .home-page > main > .home-hero > .hero-content h1 {
+    font-size: clamp(38px, 4.3vw, 52px) !important;
+  }
+  .home-page > main > .home-hero > .hero-photo-stage {
+    flex-basis: 54% !important;
+    height: clamp(320px, 36vw, 430px) !important;
+    min-height: 320px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-page > main > .home-hero {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 32px !important;
+    min-height: 0 !important;
+    padding: 58px 28px 42px !important;
+    background-image: linear-gradient(180deg, rgba(248,251,255,.97), rgba(248,251,255,.82)), url("https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1600&q=80") !important;
+  }
+  .home-page > main > .home-hero > .hero-content {
+    flex: 0 1 auto !important;
+    width: 100% !important;
+    max-width: 720px !important;
+  }
+  .home-page > main > .home-hero > .hero-content h1 {
+    font-size: clamp(40px, 6.5vw, 58px) !important;
+  }
+  .home-page > main > .home-hero > .hero-photo-stage {
+    flex: 0 1 auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: clamp(300px, 55vw, 440px) !important;
+    min-height: 300px !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .home-page > main > .home-hero {
+    padding: 38px 18px 30px !important;
+    gap: 26px !important;
+  }
+  .home-page > main > .home-hero > .hero-content h1 {
+    font-size: clamp(36px, 9vw, 46px) !important;
+    letter-spacing: -.035em !important;
+  }
+  .home-page > main > .home-hero > .hero-content .hero-button {
+    min-width: 0 !important;
+    width: auto !important;
+  }
+  .home-page > main > .home-hero > .hero-content .hero-benefits {
+    gap: 10px 16px !important;
+  }
+  .home-page > main > .home-hero > .hero-content .hero-benefits span {
+    white-space: normal !important;
+  }
+  .home-page > main > .home-hero > .hero-photo-stage {
+    height: 290px !important;
+    min-height: 290px !important;
+    border-radius: 22px !important;
+  }
+  .home-page > main > .home-hero .hero-photo-top-chip {
+    top: 12px !important;
+    left: 12px !important;
+    padding: 9px 11px !important;
+  }
+  .home-page > main > .home-hero .hero-photo-bottom-card {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+    padding: 11px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page > main > .home-hero .hero-content,
+  .home-page > main > .home-hero .hero-photo-stage,
+  .home-page > main > .home-hero .hero-photo-slide,
+  .home-page > main > .home-hero .hero-photo-bottom-card,
+  .home-page > main > .home-hero .hero-live-dot {
+    animation: none !important;
+    transition: none !important;
+  }
+  .home-page > main > .home-hero .hero-photo-slide-plane { opacity: 1 !important; }
+  .home-page > main > .home-hero .hero-photo-slide-train,
+  .home-page > main > .home-hero .hero-photo-slide-bus { display: none !important; }
+}

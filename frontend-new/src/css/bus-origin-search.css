@@ -1,0 +1,9 @@
+/* Checkout submit button reliability patch */
+.bus-checkout-actions { display: flex; flex-direction: column; gap: 10px; width: 100%; margin: 2px 0 4px; position: relative; z-index: 20; pointer-events: auto; }
+.bus-checkout-submit { display: flex !important; visibility: visible !important; opacity: 1; width: 100%; min-height: 48px; cursor: pointer; pointer-events: auto; }
+.bus-checkout-submit:disabled { opacity: .65; cursor: not-allowed; }
+.bus-checkout-actions > small { display: block; color: #71819a; font-size: 11px; line-height: 1.6; }
+.bus-checkout-login-action { display: flex; margin-top: 10px; }
+.bus-payment-amount { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 14px 0; padding: 12px 0; border-top: 1px solid #dcefe4; border-bottom: 1px solid #dcefe4; color: #42745d; font-size: 13px; }
+.bus-payment-amount strong { color: #145b3e; font-size: 18px; }
+@media (min-width: 900px) { .bus-origin-search-fields { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .bus-origin-search-fields > .bus-field:last-child { grid-column: 1 / -1; } }

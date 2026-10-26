@@ -10,6 +10,7 @@ from flask_jwt_extended import (
 )
 from pymongo.errors import DuplicateKeyError
 from bson import ObjectId
+from flask import Blueprint, current_app, jsonify, request
 
 from models.user import create_user_document, verify_password
 
@@ -17,8 +18,7 @@ auth_bp = Blueprint("auth", __name__, url_prefix="/api/auth")
 
 
 def get_db():
-    from app import db
-    return db
+    return current_app.config["DB"]
 
 
 def public_user(user):
