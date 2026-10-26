@@ -5,3 +5,11 @@
 @media(max-width:420px){.bus-brand b{font-size:12px}.bus-brand-mark{width:38px;height:38px}.bus-nav{font-size:11px}.bus-trip-route{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr)}.bus-trip-stop strong{font-size:16px}.bus-trip-stop b{font-size:10px}.bus-trip-duration{font-size:9px}.bus-seat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.bus-seat-grid.is-limousine{grid-template-columns:repeat(3,minmax(0,1fr))}.bus-filter-panel{grid-template-columns:1fr}.bus-filter-title,.bus-filter-note{grid-column:auto}.bus-e-ticket-main{grid-template-columns:1fr}.bus-qr-placeholder{grid-column:auto}}
 
 .bus-qr-placeholder img{display:block;width:94px;height:94px;object-fit:contain;background:#fff;padding:4px;border-radius:5px}
+
+.bus-qr-real {
+  background: #fff;
+  padding: 6px;
+  display: grid;
+  place-items: center;
+}
+.bus-qr-real svg { display: block; }

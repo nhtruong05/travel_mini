@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 
 from flask import Flask, jsonify
 from flask_cors import CORS
@@ -14,6 +15,7 @@ CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # JWT
 app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY", "dev-secret-change-me")
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=8)  # hoặc timedelta(days=1)
 jwt = JWTManager(app)
 
 # MongoDB

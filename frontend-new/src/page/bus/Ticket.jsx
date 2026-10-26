@@ -2,6 +2,7 @@
 import { Link, useLocation, useParams } from "react-router-dom";
 import { api, formatDate, formatTime, formatVND } from "../../api";
 import "../../css/bus-booking.css";
+import { QRCodeSVG } from "qrcode.react";
 
 const STATUS = {
   PENDING_PAYMENT: "Chờ thanh toán",
@@ -163,8 +164,10 @@ export default function BusTicket() {
                     <small>MÃ VÉ</small><strong>{ticket.ticketCode}</strong>
                     <small>GHẾ / GIƯỜNG</small><b>{ticket.seatNumber || ticket.passenger?.seatNumber || "—"}</b>
                   </div>
-                  <div className="bus-qr-placeholder">
-                    {ticket.qrDataUrl ? <img src={ticket.qrDataUrl} alt={`QR vé ${ticket.ticketCode}`} /> : <><b>QR</b><small>{ticket.qrPayload?.slice(0, 12) || ticket.ticketCode}</small></>}
+                  <div className="bus-qr-placeholder bus-qr-real">
+                    {ticket.qrDataUrl
+                      ? <img src={ticket.qrDataUrl} alt={`QR vé ${ticket.ticketCode}`} />
+                      : <QRCodeSVG value={ticket.qrPayload || ticket.ticketCode} size={104} level="M" marginSize={1} />}
                   </div>
                 </div>
               </article>
